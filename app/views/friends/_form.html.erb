@@ -26,7 +26,7 @@
     <%= form.text_field :email %>
   </div>
 
-  <div>
+  <div >
     <%= form.label :phone, style: "display: block" %>
     <%= form.text_field :phone %>
   </div>
@@ -40,8 +40,8 @@
     <%= form.label :linkedin, style: "display: block" %>
     <%= form.text_field :linkedin %>
   </div>
-
-  <div>
-    <%= form.submit %>
+<br/>
+  <div class="mb-3">
+    <%= form.submit class: "btn btn-secondary" %>
   </div>
 <% end %>
