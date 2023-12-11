@@ -1,33 +1,32 @@
 require 'rails_helper'
 
-RSpec.describe "friends/new", type: :view do
+RSpec.describe 'friends/new', type: :view do
   before(:each) do
     assign(:friend, Friend.new(
-      first_name: "MyString",
-      last_name: "MyString",
-      email: "MyString",
-      phone: "MyString",
-      twitter: "MyString",
-      linkedin: "MyString"
-    ))
+                      first_name: 'MyString',
+                      last_name: 'MyString',
+                      email: 'MyString',
+                      phone: 'MyString',
+                      twitter: 'MyString',
+                      linkedin: 'MyString'
+                    ))
   end
 
-  it "renders new friend form" do
+  it 'renders new friend form' do
     render
 
-    assert_select "form[action=?][method=?]", friends_path, "post" do
+    assert_select 'form[action=?][method=?]', friends_path, 'post' do
+      assert_select 'input[name=?]', 'friend[first_name]'
 
-      assert_select "input[name=?]", "friend[first_name]"
+      assert_select 'input[name=?]', 'friend[last_name]'
 
-      assert_select "input[name=?]", "friend[last_name]"
+      assert_select 'input[name=?]', 'friend[email]'
 
-      assert_select "input[name=?]", "friend[email]"
+      assert_select 'input[name=?]', 'friend[phone]'
 
-      assert_select "input[name=?]", "friend[phone]"
+      assert_select 'input[name=?]', 'friend[twitter]'
 
-      assert_select "input[name=?]", "friend[twitter]"
-
-      assert_select "input[name=?]", "friend[linkedin]"
+      assert_select 'input[name=?]', 'friend[linkedin]'
     end
   end
 end

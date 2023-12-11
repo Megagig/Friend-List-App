@@ -1,35 +1,35 @@
 require 'rails_helper'
 
-RSpec.describe "friends/index", type: :view do
+RSpec.describe 'friends/index', type: :view do
   before(:each) do
     assign(:friends, [
-      Friend.create!(
-        first_name: "First Name",
-        last_name: "Last Name",
-        email: "Email",
-        phone: "Phone",
-        twitter: "Twitter",
-        linkedin: "Linkedin"
-      ),
-      Friend.create!(
-        first_name: "First Name",
-        last_name: "Last Name",
-        email: "Email",
-        phone: "Phone",
-        twitter: "Twitter",
-        linkedin: "Linkedin"
-      )
-    ])
+             Friend.create!(
+               first_name: 'First Name',
+               last_name: 'Last Name',
+               email: 'Email',
+               phone: 'Phone',
+               twitter: 'Twitter',
+               linkedin: 'Linkedin'
+             ),
+             Friend.create!(
+               first_name: 'First Name',
+               last_name: 'Last Name',
+               email: 'Email',
+               phone: 'Phone',
+               twitter: 'Twitter',
+               linkedin: 'Linkedin'
+             )
+           ])
   end
 
-  it "renders a list of friends" do
+  it 'renders a list of friends' do
     render
     cell_selector = Rails::VERSION::STRING >= '7' ? 'div>p' : 'tr>td'
-    assert_select cell_selector, text: Regexp.new("First Name".to_s), count: 2
-    assert_select cell_selector, text: Regexp.new("Last Name".to_s), count: 2
-    assert_select cell_selector, text: Regexp.new("Email".to_s), count: 2
-    assert_select cell_selector, text: Regexp.new("Phone".to_s), count: 2
-    assert_select cell_selector, text: Regexp.new("Twitter".to_s), count: 2
-    assert_select cell_selector, text: Regexp.new("Linkedin".to_s), count: 2
+    assert_select cell_selector, text: Regexp.new('First Name'.to_s), count: 2
+    assert_select cell_selector, text: Regexp.new('Last Name'.to_s), count: 2
+    assert_select cell_selector, text: Regexp.new('Email'.to_s), count: 2
+    assert_select cell_selector, text: Regexp.new('Phone'.to_s), count: 2
+    assert_select cell_selector, text: Regexp.new('Twitter'.to_s), count: 2
+    assert_select cell_selector, text: Regexp.new('Linkedin'.to_s), count: 2
   end
 end

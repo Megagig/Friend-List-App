@@ -1,18 +1,18 @@
 require 'rails_helper'
 
-RSpec.describe "friends/show", type: :view do
+RSpec.describe 'friends/show', type: :view do
   before(:each) do
     assign(:friend, Friend.create!(
-      first_name: "First Name",
-      last_name: "Last Name",
-      email: "Email",
-      phone: "Phone",
-      twitter: "Twitter",
-      linkedin: "Linkedin"
-    ))
+                      first_name: 'First Name',
+                      last_name: 'Last Name',
+                      email: 'Email',
+                      phone: 'Phone',
+                      twitter: 'Twitter',
+                      linkedin: 'Linkedin'
+                    ))
   end
 
-  it "renders attributes in <p>" do
+  it 'renders attributes in <p>' do
     render
     expect(rendered).to match(/First Name/)
     expect(rendered).to match(/Last Name/)
